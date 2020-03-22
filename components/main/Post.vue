@@ -7,12 +7,13 @@
       <h3>Post title</h3>
       <small>
         <i class="el-icon-time"></i>
-        {{ new Date().toLocaleString()}}</small>
+        {{ new Date().toLocaleString()}}
+      </small>
     </header>
     <div class="post-body">
       <img
         src="https://wallbox.ru/resize/800x480/wallpapers/main2/201726/14986676245953da68df7d32.08263646.jpg"
-        alt="Морская крепость Свеаборг"
+        alt="Горное озеро"
         class="post-img">
     </div>
     <footer class="post-footer">
@@ -29,7 +30,11 @@
 <script>
 export default {
   methods: {
-    openPost() {}
+    openPost() {
+        //this.$router.push(`/post/${this.post.id}`);
+        const id = 'test-id';
+        this.$router.push(`/post/${id}`);
+    }
   },
 }
 </script>
