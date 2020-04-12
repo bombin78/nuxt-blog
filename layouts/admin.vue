@@ -1,8 +1,8 @@
 <template>
   <div class="wrap">
     <el-container :style="{height: '100%'}">
-      <el-aside width="200px">
-        Aside
+      <el-aside width="250px">
+        <app-aside />
       </el-aside>
       <el-main>
         <nuxt />
@@ -12,7 +12,12 @@
 </template>
 
 <script>
+import AppAside from '@/components/admin/Aside';
+
 export default {
+  components: {
+    AppAside,
+  },
 }
 </script>
 
