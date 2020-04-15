@@ -24,11 +24,11 @@
         <el-button
           type="primary"
           native-type="submit"
-          :loading="loading"
-          round>Войти
+          round
+          :loading="loading">
+          Войти
         </el-button>
       </el-form-item>
-
     </el-form>
   </el-card>
 </template>
@@ -52,11 +52,28 @@ export default {
           {min: 6, message: 'Пароль должен быть не менее 6 символов', trigger: 'blur'},
         ],
       },
-    }
+    };
   },
   methods: {
     onSubmit() {
-      console.log('submit');
+      this.$refs.form.validate(async valid => {
+        if (valid) {
+          this.loading = true;
+
+          try {
+            const formData = {
+              login: this.controls.login,
+              password: this.controls.password,
+            };
+
+            await this.$store.dispatch('auth/login', formData);
+            this.$router.push('/admin');
+
+          } catch (e) {
+            this.loading = false;
+          }
+        }
+      });
     },
   },
 }
