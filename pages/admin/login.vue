@@ -54,6 +54,13 @@ export default {
       },
     };
   },
+  mounted () {
+    const {message} = this.$route.query;
+
+    if (message === 'login') {
+      this.$message.info('Для начала войдите в систему');
+    }
+  },
   methods: {
     onSubmit() {
       this.$refs.form.validate(async valid => {
@@ -67,6 +74,8 @@ export default {
             };
 
             await this.$store.dispatch('auth/login', formData);
+
+            console.log('this', this);
             this.$router.push('/admin');
 
           } catch (e) {
