@@ -23,12 +23,14 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/node_modules/bootstrap/dist/css/bootstrap.min.css'
+    '@/node_modules/bootstrap/dist/css/bootstrap.min.css',
+    '@/assets/scss/style.scss'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { mode: 'client', src: '@/node_modules/bootstrap/dist/js/bootstrap.min.js', type: "text/javascript" }
   ],
   /*
   ** Nuxt.js dev-modules
