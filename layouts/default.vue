@@ -1,12 +1,12 @@
 <template>
-  <div class="wrapper">
-    <header class ="header bg-dark">
+  <div class="app-wrapper">
+    <header class ="app-header sticky-top bg-dark">
       <app-navigation />
     </header>
-    <main class="main">
+    <main class="app-main">
       <nuxt />
     </main>
-    <footer class ="footer">
+    <footer class ="app-footer">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
       </div>

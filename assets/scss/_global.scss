@@ -7,24 +7,24 @@ html, body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.wrapper {
+.app-wrapper {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
 
-.header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
+.app-header {}
 
-.main {
+.app-main {
 	flex: 1 0 auto;
 }
-.footer {
+
+.app-footer {
 	flex: 0 0 auto;
+}
+
+.app-shadow {
+  &:hover {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  }
 }

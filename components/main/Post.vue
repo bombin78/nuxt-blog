@@ -1,5 +1,5 @@
 <template>
-  <div class="post card mb-4">
+  <div class="app-shadow card mb-4">
 
     <div class="card-header bg-transparent d-flex justify-content-between align-items-center py-3">
       <h3 class="card-title mb-0">Post title</h3>
@@ -39,16 +39,9 @@
 export default {
   methods: {
     openPost() {
-
+      const id = 'test-id';
+      this.$router.push(`/post/${id}`)
     },
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.post {
-  &:hover {
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-  }
-}
-</style>
