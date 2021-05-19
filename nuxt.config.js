@@ -30,7 +30,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { mode: 'client', src: '@/node_modules/bootstrap/dist/js/bootstrap.min.js', type: "text/javascript" }
+    { mode: 'client', src: '@/node_modules/bootstrap/dist/js/bootstrap.min.js', type: "text/javascript" },
+    { src: "~plugins/vuelidate.js" }
   ],
   /*
   ** Nuxt.js dev-modules

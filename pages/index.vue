@@ -1,7 +1,7 @@
 <template>
-  <div class="container py-3">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-12	col-lg-9	col-xl-8 col-xxl-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12	col-lg-9 col-xl-8 col-xxl-7">
         <app-post
           v-for="post in 3"
           :key="post"
@@ -23,3 +23,17 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  padding: {
+    top: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+</style>

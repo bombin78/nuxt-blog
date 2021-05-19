@@ -1,67 +1,38 @@
 <template>
-  <div class="container py-3">
-    <div class="row d-flex justify-content-center">
+  <div class="container">
+    <div class="row">
       <div class="col-md-12 col-lg-9 col-xl-8 col-xxl-7">
-        <article class="post">
+        <article class="scd-article">
 
-          <header class="mb-3">
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              <h1>Post title</h1>
-              <nuxt-link to="/">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-arrow-left-short"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"
-                  />
-                </svg>
+          <header class="scd-article__header">
+
+            <div class="scd-article__header-top">
+              <h1 class="scd-article__header-title">Post title</h1>
+              <nuxt-link class="scd-article__header-link" to="/">
+                <app-bi-icon
+                  :type="'arrow-left-square'"
+                  :width="'12'"
+                  :height="'12'"
+                />
               </nuxt-link>
             </div>
 
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              <small>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-clock"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-                  />
-                  <path
-                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
-                  />
-                </svg>
-                {{ new Date().toLocaleString() }}
+            <div class="scd-article__header-bottom">
+              <small class="scd-article__header-date">
+                <app-bi-icon
+                  :type="'clock'"
+                />{{ new Date().toLocaleString() }}
               </small>
-              <small>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-eye"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"
-                  />
-                  <path
-                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"
-                  />
-                </svg>
-                42
+              <small class="scd-article__header-views">
+                <app-bi-icon
+                  :type="'eye'"
+                />42
               </small>
             </div>
+
+          </header>
+
+          <main class="scd-article__main">
 
             <img
               class="card-img-top"
@@ -69,22 +40,19 @@
               alt="post images"
             />
 
-          </header>
-
-          <main class="mb-4">
-            <p>
+            <p class="scd-article__main-text">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni
               vel quos quod et sit, quibusdam ut quaerat natus non atque
               consequatur repellendus enim! Recusandae accusamus vel eaque odio
               officia nam.
             </p>
-            <p>
+            <p class="scd-article__main-text">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni
               vel quos quod et sit, quibusdam ut quaerat natus non atque
               consequatur repellendus enim! Recusandae accusamus vel eaque odio
               officia nam.
             </p>
-            <p>
+            <p class="scd-article__main-text">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni
               vel quos quod et sit, quibusdam ut quaerat natus non atque
               consequatur repellendus enim! Recusandae accusamus vel eaque odio
@@ -92,7 +60,25 @@
             </p>
           </main>
 
-          <footer></footer>
+          <footer class="scd-article__footer">
+
+            <app-comment-form
+              v-if="canAddComment"
+              @created="createCommentHandler"
+            />
+
+            <div class="scd-article__footer-comments" v-if="true">
+              <app-comment
+                v-for="comment in 4"
+                :key="comment"
+                :comment="comment"
+              />
+            </div>
+
+            <div class="scd-article__footer-empty" v-else>Комментариев нет</div>
+
+          </footer>
+
         </article>
       </div>
     </div>
@@ -100,9 +86,71 @@
 </template>
 
 <script>
+import AppBiIcon from '@/components/main/BiIcon.vue';
+import AppComment from '@/components/main/Comment';
+import AppCommentForm from '@/components/main/CommentForm';
+
 export default {
+  components: {
+    AppBiIcon,
+    AppComment,
+    AppCommentForm,
+  },
   validate({ params }) {
     return Boolean(params.id);
   },
+  data: () => ({
+    canAddComment: true,
+  }),
+  methods: {
+    createCommentHandler() {
+      this.canAddComment = false;
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+
+.container {
+  padding: {
+    top: 1rem;
+    bottom: 1rem;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.card-img-top {
+  margin-bottom: 1.5rem;
+}
+
+.scd-article {
+
+  &__header {
+    margin-bottom: 0.8rem;
+  }
+
+  &__header-top{
+    margin-bottom: 0.2rem;
+  }
+
+  &__header-top,
+  &__header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__main {
+    margin-bottom: 1.5rem;
+  }
+
+  &__footer-empty {
+    text-align: center;
+  }
+}
+</style>

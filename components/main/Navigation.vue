@@ -46,7 +46,5 @@
 </template>
 
 <style lang="scss" scoped>
-.title {
-  color: red;
-}
+
 </style>

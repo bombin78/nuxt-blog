@@ -23,8 +23,13 @@ html, body {
 	flex: 0 0 auto;
 }
 
-.app-shadow {
-  &:hover {
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-  }
+// Классы NuxtJS
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .4s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }
