@@ -51,7 +51,7 @@
 
 
 <script>
-import { required } from "vuelidate/lib/validators/";
+import required from "vuelidate/lib/validators/required";
 
 export default {
   data: () => ({

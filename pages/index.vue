@@ -33,7 +33,6 @@ export default {
 }
 
 .row {
-  display: flex;
   justify-content: center;
 }
 </style>

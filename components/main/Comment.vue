@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import AppBiIcon from "@/components/main/BiIcon.vue";
+import AppBiIcon from "@/components/BiIcon.vue";
 
 export default {
   components: {
@@ -30,7 +30,7 @@ export default {
 .card {
   margin-bottom: 1rem;
 
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
 .card-header {

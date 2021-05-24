@@ -11,8 +11,6 @@
               <nuxt-link class="scd-article__header-link" to="/">
                 <app-bi-icon
                   :type="'arrow-left-square'"
-                  :width="'12'"
-                  :height="'12'"
                 />
               </nuxt-link>
             </div>
@@ -86,7 +84,7 @@
 </template>
 
 <script>
-import AppBiIcon from '@/components/main/BiIcon.vue';
+import AppBiIcon from '@/components/BiIcon.vue';
 import AppComment from '@/components/main/Comment';
 import AppCommentForm from '@/components/main/CommentForm';
 
@@ -120,7 +118,6 @@ export default {
 }
 
 .row {
-  display: flex;
   justify-content: center;
 }
 
@@ -143,6 +140,15 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__header-date {
+    ::v-deep .bi-clock {
+      position: relative;
+      top: -1px;
+      width: 0.875rem;
+      height: 0.875rem;
+    }
   }
 
   &__main {

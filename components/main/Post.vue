@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import AppBiIcon from "@/components/main/BiIcon.vue";
+import AppBiIcon from "@/components/BiIcon.vue";
 
 export default {
   components: {
@@ -64,6 +64,13 @@ export default {
   }
 
   background-color: transparent;
+
+  ::v-deep .bi-clock {
+    position: relative;
+    top: -1px;
+    width: 0.875rem;
+    height: 0.875rem;
+  }
 }
 
 .card-title {
