@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import AppBiIcon from "@/components/BiIcon.vue";
+import AppBiIcon from '@/components/BiIcon.vue';
 
 export default {
   components: {
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     openPost() {
-      const id = "test-id";
+      const id = 'test-id';
       this.$router.push(`/post/${id}`);
     },
   },

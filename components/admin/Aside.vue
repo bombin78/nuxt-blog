@@ -61,7 +61,7 @@
 </template>
 
 <script>
-import AppBiIcon from "@/components/BiIcon.vue";
+import AppBiIcon from '@/components/BiIcon.vue';
 
 export default {
   components: {
@@ -85,7 +85,8 @@ export default {
 
 
     color: rgba(0, 0, 0, 0.7);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out;
 

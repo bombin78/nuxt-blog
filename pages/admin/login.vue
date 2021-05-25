@@ -70,15 +70,15 @@
 </template>
 
 <script>
-import required from "vuelidate/lib/validators/required";
-import minLength from "vuelidate/lib/validators/minLength";
+import required from 'vuelidate/lib/validators/required';
+import minLength from 'vuelidate/lib/validators/minLength';
 
 export default {
-  layout: "empty",
+  layout: 'empty',
   data: () => ({
     loading: false,
-    login: "",
-    password: "",
+    login: '',
+    password: '',
   }),
   validations: {
     login: {
@@ -89,6 +89,18 @@ export default {
       minLength: minLength(6),
     },
   },
+  // Код, выполняемый только в браузере
+  // Если бы это был метод created() то он выполнялся бы также и
+  // на сервере, что в данном случае приводило бы к ошибке
+  mounted() {
+    const {message} = this.$route.query;
+
+    if(message === 'login') {
+      console.log('Для начала войдите в систему');
+      // TODO Добавить код для вывода сообщений
+      // this.$message.info('Для начала войдите в систему')
+    }
+  },
   methods: {
     async submitHandler() {
       if (this.$v.$invalid) {
@@ -96,7 +108,7 @@ export default {
         return;
       }
 
-      console.log("Submit");
+      console.log('Submit');
 
       this.loading = true;
 
