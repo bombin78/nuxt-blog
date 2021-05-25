@@ -90,7 +90,7 @@ export default {
     },
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
@@ -99,6 +99,19 @@ export default {
       console.log("Submit");
 
       this.loading = true;
+
+      try {
+        const formData = {
+          login: this.login,
+          password: this.password,
+        }
+
+        await this.$store.dispatch('auth/login', formData);
+        this.$router.push('/admin')
+
+      } catch(e) {
+        this.loading = false;
+      }
     },
   },
 };
