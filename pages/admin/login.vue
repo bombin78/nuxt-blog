@@ -95,10 +95,17 @@ export default {
   mounted() {
     const {message} = this.$route.query;
 
-    if(message === 'login') {
-      console.log('Для начала войдите в систему');
-      // TODO Добавить код для вывода сообщений
-      // this.$message.info('Для начала войдите в систему')
+    switch(message) {
+      case 'login':
+        // TODO Добавить код для вывода сообщений
+        // this.$message.info('Для начала войдите в систему');
+        console.log('Для начала войдите в систему');
+        break;
+      case 'logout':
+        // TODO Добавить код для вывода сообщений
+        // this.$message.success('Вы успешно вышли из системы');
+        console.log('Вы успешно вышли из системы');
+        break;
     }
   },
   methods: {
