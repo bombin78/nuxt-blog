@@ -96,15 +96,25 @@ export default {
     const {message} = this.$route.query;
 
     switch(message) {
+
       case 'login':
-        // TODO Добавить код для вывода сообщений
-        // this.$message.info('Для начала войдите в систему');
-        console.log('Для начала войдите в систему');
+        this.$toast.error('Для начала войдите в систему', {
+          icon: 'error',
+          action: [
+            {
+              text: 'x',
+              onClick: (e, toastObject) => {
+                toastObject.goAway(0)
+              }
+            }
+          ]
+        });
         break;
+
       case 'logout':
-        // TODO Добавить код для вывода сообщений
-        // this.$message.success('Вы успешно вышли из системы');
-        console.log('Вы успешно вышли из системы');
+        this.$toast.success('Вы успешно вышли из системы', {
+          duration: 5000,
+        });
         break;
     }
   },

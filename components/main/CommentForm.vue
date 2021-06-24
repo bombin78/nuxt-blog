@@ -85,9 +85,8 @@ export default {
 
       try {
         setTimeout(() => {
-          console.log('Комментарий добавлен');
-          // TODO Добавить код для вывода сообщений
-          // this.$message.success('Комментарий добавлен');
+          this.$toast.show('Комментарий добавлен - метод show()');
+          this.$toast.info('Комментарий добавлен - метод info()');
           this.$emit('created');
         }, 2000);
       } catch(e) {

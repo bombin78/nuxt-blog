@@ -22,7 +22,10 @@ import AppAside from '@/components/admin/Aside.vue';
 export default {
   components: {
     AppAside,
-  }
+  },
+  mounted() {
+    this.$toast.clear();
+  },
 };
 </script>
 
