@@ -23,9 +23,6 @@ export default {
   components: {
     AppAside,
   },
-  mounted() {
-    this.$toast.clear();
-  },
 };
 </script>
 

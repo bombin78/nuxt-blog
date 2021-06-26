@@ -85,8 +85,12 @@ export default {
 
       try {
         setTimeout(() => {
-          this.$toast.show('Комментарий добавлен - метод show()');
-          this.$toast.info('Комментарий добавлен - метод info()');
+          this.$toast.show('Комментарий добавлен - метод show()', {
+            duration: 5000,
+          });
+          this.$toast.info('Комментарий добавлен - метод info()', {
+            duration: 5000,
+          });
           this.$emit('created');
         }, 2000);
       } catch(e) {

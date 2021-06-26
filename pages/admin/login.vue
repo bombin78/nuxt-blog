@@ -99,15 +99,7 @@ export default {
 
       case 'login':
         this.$toast.error('Для начала войдите в систему', {
-          icon: 'error',
-          action: [
-            {
-              text: 'x',
-              onClick: (e, toastObject) => {
-                toastObject.goAway(0)
-              }
-            }
-          ]
+          duration: 5000,
         });
         break;
 
@@ -117,6 +109,9 @@ export default {
         });
         break;
     }
+  },
+  destroyed() {
+    this.$toast.clear();
   },
   methods: {
     async submitHandler() {
